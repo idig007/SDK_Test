@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SASReport xmlns="http://www.sas.com/sasreportmodel/bird-4.16.0" label="Test" createdLocale="en" createdVersion="4.16.0" dateCreated="2022-03-18T08:53:40Z" dateModified="2022-03-18T08:53:40Z" createdApplication="SAS Visual Analytics 2020" lastModifiedApplication="SAS Visual Analytics 2020" nextUniqueNameIndex="34">
+	<Results>
+		<Result ref="dd29" type="relational" status="success" dataLevel="baseline" label="Results" dataLocale="en_US" consumerDataModel="aggregated" supportsExportDetail="true" supportsCustomQuery="true" sortLocale="en_US" tableDateModified="2022-03-17T06:40:44.242Z">
+			<Variables>
+				<StringVariable label="DriveTrain" ref="bi30" varname="bi30" column="c0"/>
+				<NumericVariable format="DOLLAR8." usage="quantitative" definedAggregation="average" label="MSRP" ref="bi31" varname="bi31" column="c1"/>
+			</Variables>
+			<Columns>
+				<StringColumn maxLength="1" colname="c0" encoding="text"/>
+				<NumericColumn dataType="double" colname="c1" encoding="text"/>
+			</Columns>
+			<DefinedColumnSortItems>
+				<DefinedMeasureSortItem variable="bi31" sortDirection="descending"/>
+				<DefinedSortItem variable="bi30" sortDirection="ascending"/>
+			</DefinedColumnSortItems>
+			<Data isIndexed="true" availableRowCount="3" contentKey="TH3FA363LNB3SHKPCODAS6UPTWZOCHMI" size="62" format="CSV" rowCount="3" grandTotal="false" dataLayout="minimal"><![CDATA[2,46093.62727272727
+0,36483.489130434784
+1,24782.557522123894
+]]></Data>
+			<StringTable contentKey="HB363Q3ZCBTVPHVMZILIQR3G2HRMEMQ4" size="21" format="CSV" rowCount="3"><![CDATA["All"
+"Front"
+"Rear"
+]]></StringTable>
+		</Result>
+	</Results>
+	<DataDefinitions>
+		<ParentDataDefinition childQueryRelationship="independent" status="executable" dataSource="ds7" name="dd27">
+			<BusinessItems>
+				<RelationalDataItem name="bi30" base="bi9"/>
+				<RelationalDataItem name="bi31" base="bi18"/>
+			</BusinessItems>
+			<DataDefinition dataSource="ds7" type="multidimensional" name="dd28">
+				<MultidimensionalQuery detail="false">
+					<Axes>
+						<Axis type="column">
+							<BusinessItem ref="bi30"/>
+						</Axis>
+						<Axis type="row">
+							<BusinessItem ref="bi31"/>
+						</Axis>
+					</Axes>
+					<ColumnSortItems>
+						<MeasureSortItem ref="bi31" sortDirection="descending"/>
+						<SortItem ref="bi30" sortDirection="ascending"/>
+					</ColumnSortItems>
+				</MultidimensionalQuery>
+				<ResultDefinitions>
+					<ResultDefinition purpose="primary" maxRowsLookup="graphDefault" maxRowsBehavior="truncate" name="dd29"/>
+				</ResultDefinitions>
+			</DataDefinition>
+		</ParentDataDefinition>
+	</DataDefinitions>
+	<DataSources>
+		<DataSource label="CARS" type="relational" name="ds7">
+			<CasResource server="cas-shared-default" library="Public" table="CARS" locale="en_US"/>
+			<BusinessItemFolder>
+				<DataItem name="bi8" xref="Cylinders"/>
+				<DataItem name="bi9" xref="DriveTrain"/>
+				<DataItem name="bi10" xref="EngineSize"/>
+				<DataItem name="bi11" xref="Horsepower"/>
+				<DataItem name="bi12" xref="Invoice"/>
+				<DataItem name="bi13" xref="Length"/>
+				<DataItem name="bi14" xref="Make"/>
+				<DataItem name="bi15" xref="Model"/>
+				<DataItem name="bi16" xref="MPG_City"/>
+				<DataItem name="bi17" xref="MPG_Highway"/>
+				<DataItem name="bi18" xref="MSRP" aggregation="average"/>
+				<DataItem name="bi19" xref="Origin"/>
+				<DataItem name="bi20" xref="Type"/>
+				<DataItem name="bi21" xref="Weight"/>
+				<DataItem name="bi22" xref="Wheelbase"/>
+				<PredefinedDataItem calculation="totalCount" name="bi23" label="Frequency" usage="quantitative" format="COMMA12."/>
+				<PredefinedDataItem calculation="totalCountPercent" name="bi24" label="Frequency Percent" usage="quantitative" format="PERCENT20.2"/>
+			</BusinessItemFolder>
+		</DataSource>
+	</DataSources>
+	<VisualElements>
+		<Graph graphType="bar" supplementalVisuals="ve33" resultDefinitions="dd29" name="ve26" data="dd27" label="Bar - DriveTrain 1" applyDynamicBrushes="yes" sourceInteractionVariables="bi30">
+			<EditorProperties>
+				<Property key="isAutoLabel">true</Property>
+			</EditorProperties>
+<![CDATA[<StatGraph border="false" opaque="false" includeMissingDiscrete="true" selectionMode="multiple" missingValueDisplay="autolabel">
+    <Dimension/>
+    <PadAttrs top="0px" bottom="0px" left="0px" right="0px"/>
+    <Dimension/>
+    <Meta>
+        <DynVars>
+            <DynVar name="CATEGORY" description="CATEGORY_VAR" required="true" assignedType="character" type="character">
+                <DefaultValues>
+                    <Value>dd29.bi30</Value>
+                </DefaultValues>
+            </DynVar>
+            <DynVar name="RESPONSE" description="MEASURE_VAR" required="true" assignedType="numeric" type="numeric" multiplesAllowed="true">
+                <DefaultValues>
+                    <Value>dd29.bi31</Value>
+                </DefaultValues>
+            </DynVar>
+            <DynVar name="GROUP" description="SUBGROUP_VAR" required="false" type="character"/>
+            <DynVar name="COLUMN" description="HORIZONTAL_SERIES_VAR" required="false" type="character" multiplesAllowed="true"/>
+            <DynVar name="ROW" description="VERTICAL_SERIES_VAR" required="false" type="character" multiplesAllowed="true"/>
+            <DynVar name="TIP" description="TIP_VAR" required="false" assignedType="numeric" type="any" multiplesAllowed="true">
+                <DefaultValues>
+                    <Value>dd29.bi30</Value>
+                    <Value>dd29.bi31</Value>
+                </DefaultValues>
+            </DynVar>
+            <DynVar name="KEY_FRAME" description="ANIMATION" required="false" type="time" multiplesAllowed="false"/>
+            <DynVar name="HIDDEN" description="HIDDEN_VAR" required="false" type="character" multiplesAllowed="true"/>
+        </DynVars>
+        <DataNameMap>
+            <Entry model="LayoutDataMatrix_3" data="dd29"/>
+        </DataNameMap>
+    </Meta>
+    <LayoutDataMatrix cellHeightMin="1px" cellWidthMin="1px" includeMissingClass="true" rowVars="ROW" columnVars="COLUMN" name="LayoutDataMatrix_3">
+        <LayoutPrototypeOverlay2D>
+            <BarChartParm name="BarChart" tipListPolicy="replace" _stmt="barchart" compactLabelFormats="true" groupDisplay="cluster" orient="horizontal" stat="none" tip="TIP" category="CATEGORY" responseVars="RESPONSE" group="GROUP"/>
+            <XAxisOpts name="categoryAxis">
+                <DiscreteOpts sortOrder="data"/>
+                <LinearOpts>
+                    <TickValueFormatOpts extractScale="true"/>
+                </LinearOpts>
+            </XAxisOpts>
+            <YAxisOpts reverse="true">
+                <DiscreteOpts tickValueFitPolicy="staggertruncatedrop" sortOrder="data" tickValueAppearance="auto"/>
+                <LinearOpts>
+                    <TickValueFormatOpts extractScale="true"/>
+                </LinearOpts>
+            </YAxisOpts>
+        </LayoutPrototypeOverlay2D>
+    </LayoutDataMatrix>
+    <LayoutGlobalLegend legendTitlePosition="top" allowCollapsed="true">
+        <AutoLegend>
+            <GraphNames>
+                <Value>BarChart</Value>
+            </GraphNames>
+        </AutoLegend>
+    </LayoutGlobalLegend>
+    <Animation keyFrameSortOrder="ascending_unformatted" keyFrame="KEY_FRAME"/>
+    <OverviewAxis maxPlotSize="60px" minPlotSize="35px" visible="off" axis="categoryAxis"/>
+</StatGraph>]]>
+		</Graph>
+		<Table columnSizing="autoFill" resultDefinitions="dd29" name="ve33" data="dd27" applyDynamicBrushes="yes" sourceInteractionVariables="bi30">
+			<Columns>
+				<Column variable="bi30"/>
+				<Column variable="bi31"/>
+			</Columns>
+		</Table>
+	</VisualElements>
+	<View>
+		<Section name="vi6" label="Page 1">
+			<Body>
+				<MediaContainer target="mt2">
+					<ResponsiveLayout orientation="vertical" overflow="fit">
+						<Weights mediaTarget="mt5" unit="percent">
+							<Weight value="100%"/>
+						</Weights>
+						<Weights mediaTarget="mt4" unit="percent">
+							<Weight value="100%"/>
+						</Weights>
+						<Weights mediaTarget="mt3" unit="percent">
+							<Weight value="100%"/>
+						</Weights>
+					</ResponsiveLayout>
+					<Visual ref="ve26" name="vi25">
+						<ResponsiveConstraint>
+							<WidthConstraint>
+								<Width mediaTarget="mt3" preferredSizeBehavior="ignore" flexibility="flexible"/>
+							</WidthConstraint>
+							<HeightConstraint>
+								<Height mediaTarget="mt3" preferredSizeBehavior="ignore" flexibility="flexible"/>
+							</HeightConstraint>
+						</ResponsiveConstraint>
+					</Visual>
+				</MediaContainer>
+			</Body>
+		</Section>
+	</View>
+	<MediaSchemes>
+		<MediaScheme name="ms1">
+			<BaseStylesheetResource file="basems1.css" theme="opal"/>
+			<Stylesheet><![CDATA[]]></Stylesheet>
+		</MediaScheme>
+	</MediaSchemes>
+	<MediaTargets>
+		<MediaTarget windowSize="default" scheme="ms1" name="mt2"/>
+		<MediaTarget windowSize="small" scheme="ms1" name="mt3"/>
+		<MediaTarget windowSize="medium" scheme="ms1" name="mt4"/>
+		<MediaTarget windowSize="large" scheme="ms1" name="mt5"/>
+	</MediaTargets>
+	<Properties>
+		<Property key="displayDataSource">ds7</Property>
+		<Property key="ReportPackagesServiceVersion">2020.1.4</Property>
+		<Property key="ReportDataServiceVersion">2020.1.4</Property>
+	</Properties>
+	<ExportProperties>
+		<Export destination="pdf">
+			<Property key="showCoverPage" value="true"></Property>
+			<Property key="showPageNumbers" value="true"></Property>
+		</Export>
+	</ExportProperties>
+	<History>
+	<Versions>
+		<Version key="4.16.0" lastDate="2022-03-18T00:00:00Z"/>
+	</Versions>
+	<Editors>
+		<Editor applicationName="VA">
+			<Revision editorVersion="2021.2.3" lastDate="2022-03-18T08:53:40.076Z"/>
+		</Editor>
+	</Editors>
+</History>
+	<SASReportState>
+		<View/>
+	</SASReportState>
+</SASReport>

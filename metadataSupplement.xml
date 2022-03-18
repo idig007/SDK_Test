@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<metadataSupplement>
+    <tables>
+        <table dataLocale="en_US" dataSources="ds7" resourceIdentifier="'cas-shared-default','Public','CARS','en_US'" tableModifiedTimeStamp="2022-03-17T06:40:44.242Z">
+            <columns>
+                <column dataType="string" label="Make" xref="Make"/>
+                <column dataType="string" label="Model" xref="Model"/>
+                <column dataType="string" label="Type" xref="Type"/>
+                <column dataType="string" label="Origin" xref="Origin"/>
+                <column dataType="string" label="DriveTrain" xref="DriveTrain"/>
+                <column dataType="double" format="DOLLAR8." label="MSRP" xref="MSRP"/>
+                <column dataType="double" format="DOLLAR8." label="Invoice" xref="Invoice"/>
+                <column dataType="double" format="BEST12." label="Engine Size (L)" xref="EngineSize"/>
+                <column dataType="double" format="BEST12." label="Cylinders" xref="Cylinders"/>
+                <column dataType="double" format="BEST12." label="Horsepower" xref="Horsepower"/>
+                <column dataType="double" format="BEST12." label="MPG (City)" xref="MPG_City"/>
+                <column dataType="double" format="BEST12." label="MPG (Highway)" xref="MPG_Highway"/>
+                <column dataType="double" format="BEST12." label="Weight (LBS)" xref="Weight"/>
+                <column dataType="double" format="BEST12." label="Wheelbase (IN)" xref="Wheelbase"/>
+                <column dataType="double" format="BEST12." label="Length (IN)" xref="Length"/>
+            </columns>
+        </table>
+    </tables>
+    <version>2</version>
+</metadataSupplement>
